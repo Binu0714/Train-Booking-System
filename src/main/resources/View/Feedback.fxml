@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="337.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.FeedbackController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="360.0" prefWidth="560.0">
+         <children>
+            <Label text="Passenger Feedback" textFill="#090973">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="20.0" layoutY="38.0" prefHeight="318.0" prefWidth="532.0" spacing="5.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="513.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="82.0" text="Feedback Id" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="feedbackIdTxt" prefHeight="28.0" prefWidth="206.0" promptText="F001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="82.0" text="Passenger Id" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="passengerIdText" prefHeight="28.0" prefWidth="208.0" promptText="PS0001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="82.0" text="Rating" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ratingTxt" prefHeight="28.0" prefWidth="208.0" promptText="8 / 10" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Label prefHeight="18.0" prefWidth="87.0" text="Comment : ">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="commentTxt" prefHeight="130.0" prefWidth="517.0" promptText="Add passenger feedback here..">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="addFeedbackBtn" mnemonicParsing="false" onAction="#AddFeedbackBtnOnAction" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #2ecc71;" text="Add Feedback" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="400.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

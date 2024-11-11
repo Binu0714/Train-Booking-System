@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ancSignUp" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.SignUpController">
+   <children>
+      <VBox spacing="20.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER" spacing="50.0" VBox.vgrow="ALWAYS">
+               <!-- Left side with the image -->
+               <VBox alignment="CENTER" prefHeight="479.0" prefWidth="271.0" VBox.vgrow="ALWAYS">
+                  <children>
+                     <ImageView fx:id="image1" fitHeight="236.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/train.png" />
+                        </image>
+                     </ImageView>
+                     <Text fx:id="TrainMate" fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="TrainMate" wrappingWidth="180.29138296842575">
+                        <font>
+                           <Font name="System Bold Italic" size="36.0" />
+                        </font>
+                     </Text>
+                  </children>
+               </VBox>
+               <!-- Right side with the login form -->
+               <VBox alignment="CENTER" maxWidth="Infinity" prefHeight="479.0" prefWidth="429.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <Text fx:id="signup" fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="User Registration" textAlignment="CENTER" wrappingWidth="213.33666610717773">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <VBox maxWidth="400.0" prefHeight="250.0" prefWidth="400.0" spacing="10.0">
+                     <Label fx:id="username" text="Admin Id">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font></Label>
+                     <TextField fx:id="idTxt" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" promptText="Admin Id">
+                        <font>
+                           <Font size="14.0" />
+                        </font></TextField>
+                     <Label fx:id="username1" text="Username">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="usernameTxt" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" promptText="Username">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </TextField>
+                     <Label fx:id="email" text="Email">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font></Label>
+                     <TextField fx:id="emailTxt" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" promptText="email">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </TextField>
+                     <Label fx:id="password" text="Password">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Label>
+                     <PasswordField fx:id="pwrdTxt" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" promptText="********">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </PasswordField>
+                  </VBox>
+                  <HBox alignment="CENTER_RIGHT" maxWidth="400.0" prefWidth="400.0" spacing="10.0" />
+                  <Button fx:id="SignUpButton" maxWidth="400.0" onAction="#SignUpOnAction" prefHeight="23.0" prefWidth="400.0" style="-fx-background-color: #090973;" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Button>
+                  <HBox alignment="CENTER" maxWidth="400.0" spacing="5.0">
+                     <Label fx:id="text1" text="Already have an account?">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font></Label>
+                     <Hyperlink fx:id="LoginHyperLink" onMouseClicked="#LoginMouseClickAction" style="-fx-text-fill: #090973;" text="Login">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font></Hyperlink>
+                  </HBox>
+               </VBox>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

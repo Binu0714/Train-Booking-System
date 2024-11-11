@@ -1,0 +1,10 @@
+/* Apply hover effect to buttons except for logout button */
+.button {
+    -fx-background-color: #090973; /* Original background color */
+    -fx-text-fill: white; /* Text color */
+}
+
+.button:hover {
+    -fx-underline: true; /* Underline text on hover */
+    -fx-text-fill: white; /* Change text color to silver */
+}

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="464.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.ScheduleManageController">
+   <children>
+      <VBox alignment="TOP_RIGHT" layoutX="2.0" layoutY="10.0" prefHeight="460.0" prefWidth="638.0" spacing="20.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox spacing="5.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="513.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Schedule Id" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="sheduleIdTxt" prefHeight="28.0" prefWidth="100.0" promptText="S001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Train Id">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="trainIdTxt" prefHeight="28.0" prefWidth="133.0" promptText="T001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Arrival Time" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="arrivalTimeTxt" prefHeight="28.0" prefWidth="100.0" promptText="00:00:00" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label prefHeight="18.0" prefWidth="93.0" text="Departure Time">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="depTimeTxt" prefHeight="28.0" prefWidth="133.0" promptText="00:00:00" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Start Station" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="stStationTxt" prefHeight="28.0" prefWidth="100.0" promptText="Colombo Fort" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label prefHeight="18.0" prefWidth="93.0" text="End Station">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="endStationTxt" prefHeight="28.0" prefWidth="133.0" promptText="Beliatta" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="Time Duration" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="16.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="durationTxt" prefHeight="28.0" prefWidth="100.0" promptText="1 h" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label prefHeight="18.0" prefWidth="93.0" text="Date">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="dateTxt" prefHeight="26.0" prefWidth="134.0" promptText="10/10/2020" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" spacing="30.0">
+               <children>
+                  <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7f8c8d;" text="Generate Report" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resetOnAction" prefWidth="80.0" style="-fx-background-color: #e74c3c;" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDelete" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefWidth="80.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefWidth="80.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefWidth="80.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="sheduleInfoTable" onMouseClicked="#onClickTable" prefHeight="221.0" prefWidth="760.0">
+              <columns>
+                <TableColumn fx:id="sheduleIdColumn" prefWidth="69.60003662109375" text="Schedule Id" />
+                <TableColumn fx:id="trainIdColumn" prefWidth="66.39996337890625" text="Train Id" />
+                  <TableColumn fx:id="arrivalTimeColumn" prefWidth="84.800048828125" text="Arrival Time" />
+                  <TableColumn fx:id="depTimeColumn" prefWidth="83.20001220703125" text="Dep Time" />
+                  <TableColumn fx:id="stStationColumn" prefWidth="128.800048828125" text="Start Station" />
+                  <TableColumn fx:id="endStationColumn" prefWidth="127.20001220703125" text="End Station" />
+                  <TableColumn fx:id="durationColumn" prefWidth="105.60003662109375" text="Duration" />
+                  <TableColumn fx:id="dateColumn" prefWidth="96.7999267578125" text="Date" />
+              </columns>
+            </TableView>
+            <Button fx:id="delayBtn" mnemonicParsing="false" onAction="#DelayBtnOnAction" style="-fx-background-color: #090973;" text="Add Delay Notice" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
