@@ -1,6 +1,7 @@
 package lk.ijse.gdse.train_booking_project.Model;
 
 import lk.ijse.gdse.train_booking_project.Dto.CustomerSupportDto;
+import lk.ijse.gdse.train_booking_project.Dto.ScheduleDto;
 import lk.ijse.gdse.train_booking_project.Dto.TrainDto;
 import lk.ijse.gdse.train_booking_project.Util.CrudUtil;
 
@@ -37,4 +38,17 @@ public class CustomerSupportModel {
                 customerSupportDto.getPassengerId()
         );
     }
+
+    public String getNextCsId() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select CS_id from customer_support order by CS_id desc limit 1");
+        if (rst.next()) {
+            String lastId = rst.getString(1); // Last passenger ID
+            String numericPart = lastId.substring(2); // Extract the numeric part after "PS"
+            int nextIdNumber = Integer.parseInt(numericPart) + 1; // Increment by 1
+            return String.format("CS%03d", nextIdNumber); // Format with leading zeros (e.g., PS0008)
+        }
+        return "CS001"; // Default ID if no data is found
+    }
+
+
 }

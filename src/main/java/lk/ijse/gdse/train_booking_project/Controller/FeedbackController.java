@@ -2,15 +2,18 @@ package lk.ijse.gdse.train_booking_project.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lk.ijse.gdse.train_booking_project.Dto.FeedbackDto;
 import lk.ijse.gdse.train_booking_project.Model.FeedbackModel;
 
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class FeedbackController {
+public class FeedbackController implements Initializable {
 
     @FXML
     private Button addFeedbackBtn;
@@ -47,11 +50,24 @@ public class FeedbackController {
 
         boolean isSaved = feedbackModel.saveFeedback(feedbackDto);
         if (isSaved) {
-            new Alert(Alert.AlertType.INFORMATION, "Delay notice added successfully..").show();
+            new Alert(Alert.AlertType.INFORMATION, "Customer Feedback added successfully..").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to add Delay notice...").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to add Customer Feedback...").show();
         }
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+
+            String getNextFeedbackId = feedbackModel.getNextFeedbackId();
+            feedbackIdTxt.setText(getNextFeedbackId);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load feedback id").show();
+        }
+
+    }
 }

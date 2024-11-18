@@ -97,6 +97,11 @@ public class TrainManageController implements Initializable {
         String name = nameTxt.getText();
         int capacity = Integer.parseInt(capacityTxt.getText());
 
+        if (adminId.isEmpty() || trainId.isEmpty() || name.isEmpty() || capacity==0 ){
+            new Alert(Alert.AlertType.ERROR, "Please fill all fields!").show();
+            return;
+        }
+
         TrainDto trainDto = new TrainDto(
                 adminId,
                 trainId,
@@ -107,9 +112,9 @@ public class TrainManageController implements Initializable {
         boolean isSaved = trainModel.saveTrain(trainDto);
         if (isSaved) {
             refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Customer saved...!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Train saved...!").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to save train...!").show();
         }
     }
 
@@ -121,6 +126,11 @@ public class TrainManageController implements Initializable {
         String trainId = trainIdTxt.getText();
         String name = nameTxt.getText();
         int capacity = Integer.parseInt(capacityTxt.getText());
+
+        if (adminId.isEmpty() || trainId.isEmpty() || name.isEmpty() || capacity==0 ){
+            new Alert(Alert.AlertType.ERROR, "Please fill all fields!").show();
+            return;
+        }
 
         TrainDto trainDto = new TrainDto(
                 adminId,
@@ -155,9 +165,12 @@ public class TrainManageController implements Initializable {
 
         try{
             loadTableData();
+
+            String getNextTrainId = trainModel.getNextTrainId();
+            trainIdTxt.setText(getNextTrainId);
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Fail to load customer id").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to load Train id").show();
         }
     }
 
@@ -208,7 +221,5 @@ public class TrainManageController implements Initializable {
 
         }
     }
-
-
 
 }

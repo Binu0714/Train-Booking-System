@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.DashboardController">
+    <stylesheets>
+    </stylesheets>
+    <children>
+        <VBox layoutX="50" layoutY="50" prefWidth="220" spacing="15" styleClass="vbox-container" stylesheets="@../CSS/Dashboard.css">
+            <children>
+                <Label styleClass="stat-title" text="Total Passengers :" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin></Label>
+                <Label fx:id="PassengerCount" prefHeight="20.0" prefWidth="54.0" styleClass="stat-value" text="total" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="80.0" right="10.0" />
+               </VBox.margin></Label>
+            </children>
+        </VBox>
+
+        <VBox layoutX="320" layoutY="50" prefWidth="220" spacing="15" styleClass="vbox-container" stylesheets="@../CSS/Dashboard.css">
+            <children>
+                <Label styleClass="stat-title" text="Total Bookings :">
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin></Label>
+                <Label fx:id="bookingCount" styleClass="stat-value" text="total">
+               <VBox.margin>
+                  <Insets left="80.0" />
+               </VBox.margin></Label>
+            </children>
+        </VBox>
+
+        <VBox layoutX="590" layoutY="50" prefWidth="220" spacing="15" styleClass="vbox-container" stylesheets="@../CSS/Dashboard.css">
+            <children>
+                <Label styleClass="stat-title" text="Total Revenue :">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin></Label>
+                <Label fx:id="revenueCount" styleClass="stat-value" text="total">
+               <VBox.margin>
+                  <Insets left="80.0" />
+               </VBox.margin></Label>
+            </children>
+        </VBox>
+      <BarChart fx:id="dailyPssChart" layoutX="50.0" layoutY="178.0" prefHeight="382.0" prefWidth="494.0" stylesheets="@../CSS/Barchart.css">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <VBox layoutX="590.0" layoutY="180.0" prefHeight="362.0" prefWidth="220" spacing="15" styleClass="vbox-container" stylesheets="@../CSS/Dashboard.css">
+         <children>
+            <Label styleClass="stat-title" text="Generate Reports :">
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin></Label>
+            <Button fx:id="trainReportBtn" mnemonicParsing="false" onAction="#trainReportBtnOnAction" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #0fb9b1;" stylesheets="@../CSS/HomePage.css" text="Trains" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="38.0" top="18.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="bookingReportBtn" mnemonicParsing="false" onAction="#bookingReportBtnOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #f7b731;" stylesheets="@../CSS/HomePage.css" text="Bookings" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="38.0" top="18.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="PssReportBtn" mnemonicParsing="false" onAction="#PssReportBtnOnAction" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #a55eea;" stylesheets="@../CSS/HomePage.css" text="Passengers" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="38.0" top="18.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="delayReportBtn" mnemonicParsing="false" onAction="#delayReportBtnOnAction" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #20bf6b;" stylesheets="@../CSS/HomePage.css" text="Delay Trains" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="38.0" top="18.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="csReportBtn" mnemonicParsing="false" onAction="#csReportBtnOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #fc5c65;" stylesheets="@../CSS/HomePage.css" text="Customer Complaints" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="34.0" top="18.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>

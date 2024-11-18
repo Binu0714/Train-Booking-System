@@ -12,7 +12,7 @@ import lk.ijse.gdse.train_booking_project.Model.LoginModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
+
 
 public class LoginController {
 
@@ -59,7 +59,9 @@ public class LoginController {
         String EnteredPassword = pwrdTxt.getText();
 
         if (loginModel.checkCredentials(EnteredUsername, EnteredPassword)) {
+
             System.out.println("Login successful!");
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Home.fxml"));
             AnchorPane newPane = loader.load();

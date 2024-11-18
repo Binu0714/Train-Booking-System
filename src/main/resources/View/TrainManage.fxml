@@ -10,12 +10,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="460.0" prefWidth="638.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.TrainManageController">
+<AnchorPane prefHeight="600.0" prefWidth="838.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.TrainManageController">
    <children>
-      <VBox prefHeight="477.0" prefWidth="646.0">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="838.0">
          <children>
-            <VBox prefHeight="190.0" prefWidth="638.0">
+            <Text fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="Train Management">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="198.0" prefWidth="838.0">
                <children>
                   <HBox prefHeight="30.0" prefWidth="650.0">
                      <VBox.margin>
@@ -30,7 +36,7 @@
                               <Insets left="30.0" top="15.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="adminIdTxt" prefHeight="26.0" prefWidth="474.0" promptText="A01" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="adminIdTxt" prefHeight="26.0" prefWidth="650.0" promptText="A01" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="50.0" top="10.0" />
                            </HBox.margin>
@@ -47,7 +53,7 @@
                               <Insets left="30.0" top="15.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="trainIdTxt" prefHeight="26.0" prefWidth="474.0" promptText="T001" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #090973;">
+                        <TextField fx:id="trainIdTxt" prefHeight="26.0" prefWidth="651.0" promptText="T001" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #7367F0;">
                            <HBox.margin>
                               <Insets left="60.0" top="10.0" />
                            </HBox.margin>
@@ -64,7 +70,7 @@
                               <Insets left="30.0" top="15.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="nameTxt" prefHeight="26.0" prefWidth="475.0" promptText="Rajarata Rajina" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="nameTxt" prefHeight="26.0" prefWidth="651.0" promptText="Rajarata Rajina" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="71.0" top="10.0" />
                            </HBox.margin>
@@ -81,7 +87,7 @@
                               <Insets left="30.0" top="15.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="capacityTxt" prefHeight="26.0" prefWidth="474.0" promptText="1000" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="capacityTxt" prefHeight="26.0" prefWidth="651.0" promptText="1000" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="56.0" top="10.0" />
                            </HBox.margin>
@@ -90,12 +96,15 @@
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="650.0" />
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </VBox>
-            <HBox prefHeight="38.0" prefWidth="666.0">
+            <HBox prefHeight="47.0" prefWidth="806.0">
                <children>
                   <Button fx:id="reportBtn" mnemonicParsing="false" onAction="#reportOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #7f8c8d;" text="Genarate Report" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="200.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -138,16 +147,19 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="trainInfoTable" onMouseClicked="#onClickTable" prefHeight="227.0" prefWidth="646.0">
+            <TableView fx:id="trainInfoTable" onMouseClicked="#onClickTable" prefHeight="338.0" prefWidth="822.0" stylesheets="@../CSS/Table.css">
                <columns>
-                  <TableColumn fx:id="ColumnTrainId" prefWidth="114.40000915527344" text="Train ID" />
-                  <TableColumn fx:id="ColumnAdminId" prefWidth="118.39996337890625" text="Admin ID" />
-                  <TableColumn fx:id="ColumnName" prefWidth="285.59999084472656" text="Name" />
-                  <TableColumn fx:id="ColumnCapacity" prefWidth="131.20001220703125" text="Capacity" />
+                  <TableColumn fx:id="ColumnTrainId" prefWidth="135.19997882843018" text="Train ID" />
+                  <TableColumn fx:id="ColumnAdminId" prefWidth="136.80003356933594" text="Admin ID" />
+                  <TableColumn fx:id="ColumnName" prefWidth="366.39996337890625" text="Name" />
+                  <TableColumn fx:id="ColumnCapacity" prefWidth="182.4000244140625" text="Capacity" />
                </columns>
                <padding>
                   <Insets left="2.0" />
                </padding>
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" />
+               </VBox.margin>
             </TableView>
          </children>
       </VBox>

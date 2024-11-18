@@ -3,6 +3,8 @@ module lk.ijse.gdse.train_booking_project {
     requires javafx.fxml;
     requires java.sql;
     requires static lombok;
+    requires net.sf.jasperreports.core;
+    requires javax.mail;
 
 
     opens lk.ijse.gdse.train_booking_project.Controller to javafx.fxml;

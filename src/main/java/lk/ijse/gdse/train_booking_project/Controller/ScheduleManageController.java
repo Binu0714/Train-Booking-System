@@ -14,7 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.gdse.train_booking_project.Dto.ScheduleDto;
 import lk.ijse.gdse.train_booking_project.Dto.TM.ScheduleTM;
+import lk.ijse.gdse.train_booking_project.Dto.TrainDto;
 import lk.ijse.gdse.train_booking_project.Model.ScheduleModel;
+import lk.ijse.gdse.train_booking_project.Model.TrainModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -88,8 +90,12 @@ public class ScheduleManageController implements Initializable {
     private TableColumn<ScheduleTM, String> trainIdColumn;
 
     @FXML
-    private TextField trainIdTxt;
+    private TextField trainNameTxt;
 
+    @FXML
+    private ComboBox<String> trainIdMenu;
+
+    private final TrainModel trainModel= new TrainModel();
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -119,7 +125,7 @@ public class ScheduleManageController implements Initializable {
         System.out.println("save button clicked..");
 
         String sheduleId = sheduleIdTxt.getText();
-        String trainId = trainIdTxt.getText();
+        String trainId = trainIdMenu.getValue();
         Time arrivalTime = Time.valueOf(arrivalTimeTxt.getText());
         Time departureTime = Time.valueOf(depTimeTxt.getText());
         String arrivalSation = stStationTxt.getText();
@@ -141,9 +147,9 @@ public class ScheduleManageController implements Initializable {
         boolean isSaved = scheduleModel.saveSchedule(scheduleDto);
         if (isSaved) {
             refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Customer saved...!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Schedule saved...!").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to save schedule...!").show();
         }
 
     }
@@ -153,7 +159,7 @@ public class ScheduleManageController implements Initializable {
         System.out.println("update button clicked");
 
         String sheduleId = sheduleIdTxt.getText();
-        String trainId = trainIdTxt.getText();
+        String trainId = trainIdMenu.getValue();
         Time arrivalTime = Time.valueOf(arrivalTimeTxt.getText());
         Time departureTime = Time.valueOf(depTimeTxt.getText());
         String arrivalSation = stStationTxt.getText();
@@ -176,9 +182,9 @@ public class ScheduleManageController implements Initializable {
 
         if (isUpdate) {
             refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Train updated...!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Schedule updated...!").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to update Train...!").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to update schedule...!").show();
         }
     }
 
@@ -198,6 +204,16 @@ public class ScheduleManageController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void trainIdMenuOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String selectedTrainId = trainIdMenu.getSelectionModel().getSelectedItem();
+        TrainDto trainDto = trainModel.findById(selectedTrainId);
+
+        if (trainDto != null){
+            trainNameTxt.setText(trainDto.getName());
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sheduleIdColumn.setCellValueFactory(new PropertyValueFactory<>("sheduleId"));
@@ -211,10 +227,30 @@ public class ScheduleManageController implements Initializable {
 
         try{
             loadTableData();
+            loadTrainIds();
+            configureDatePicker();
+
+            String getNextScheduleId = scheduleModel.getNextScheduleId();
+            sheduleIdTxt.setText(getNextScheduleId);
+
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Fail to load customer id").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to load schedule id").show();
         }
+    }
+
+    private void configureDatePicker() {
+        dateTxt.setDayCellFactory(picker -> new javafx.scene.control.DateCell() {
+            @Override
+            public void updateItem(java.time.LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                if (date.isBefore(java.time.LocalDate.now())) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
     }
 
     ScheduleModel scheduleModel = new ScheduleModel();
@@ -246,7 +282,7 @@ public class ScheduleManageController implements Initializable {
         ScheduleTM scheduleTM = sheduleInfoTable.getSelectionModel().getSelectedItem();
         if (scheduleTM != null) {
             sheduleIdTxt.setText(scheduleTM.getSheduleId());
-            trainIdTxt.setText(scheduleTM.getTrainId());
+            trainIdMenu.setValue(scheduleTM.getTrainId());
             arrivalTimeTxt.setText(String.valueOf(scheduleTM.getArrivalTime()));
             depTimeTxt.setText(String.valueOf(scheduleTM.getDepartureTime()));
             stStationTxt.setText(scheduleTM.getArrivalSation());
@@ -263,13 +299,14 @@ public class ScheduleManageController implements Initializable {
 
     private void refreshPage() throws SQLException, ClassNotFoundException {
         loadTableData();
+        loadTrainIds();
 
         btnSave.setDisable(false);
         btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
 
         sheduleIdTxt.setText("");
-        trainIdTxt.setText("");
+        trainIdMenu.setValue(null);
         arrivalTimeTxt.setText("");
         depTimeTxt.setText("");
         stStationTxt.setText("");
@@ -278,4 +315,10 @@ public class ScheduleManageController implements Initializable {
         dateTxt.setValue(null);
     }
 
+    public void loadTrainIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> trainIds = trainModel.getAllTrainIds();
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(trainIds);
+        trainIdMenu.setItems(observableList);
+    }
 }

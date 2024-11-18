@@ -52,4 +52,51 @@ public class TrainModel {
         return CrudUtil.execute("delete from train where T_id=?", trainId);
     }
 
+    public ArrayList<String> getAllTrainIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select T_id from train");
+
+        ArrayList<String> trainIds = new ArrayList<>();
+
+        while (rst.next()) {
+            trainIds.add(rst.getString(1));
+        }
+        return trainIds;
+    }
+
+    public ArrayList<String> getAllTrainNames() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select name from train");
+
+        ArrayList<String> trainNames = new ArrayList<>();
+
+        while (rst.next()) {
+            trainNames.add(rst.getString(1));
+        }
+        return trainNames;
+    }
+
+    public TrainDto findById(String selectedTrainId) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select * from train where T_id=?", selectedTrainId);
+
+        if (rst.next()) {
+            return new TrainDto(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getInt(4)
+            );
+        }
+        return null;
+    }
+
+    public String getNextTrainId() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select T_id from train order by T_id desc limit 1");
+        if (rst.next()) {
+            String lastId = rst.getString(1); // Last passenger ID
+            String numericPart = lastId.substring(2); // Extract the numeric part after "PS"
+            int nextIdNumber = Integer.parseInt(numericPart) + 1; // Increment by 1
+            return String.format("T%03d", nextIdNumber); // Format with leading zeros (e.g., PS0008)
+        }
+        return "T001"; // Default ID if no data is found
+    }
+
 }

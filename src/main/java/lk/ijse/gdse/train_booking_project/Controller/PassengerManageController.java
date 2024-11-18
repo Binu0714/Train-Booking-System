@@ -137,9 +137,9 @@ public class PassengerManageController implements Initializable {
 
         if (isSaved) {
             refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Customer saved...!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Passenger saved...!").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to save passenger...!").show();
         }
     }
 
@@ -165,9 +165,9 @@ public class PassengerManageController implements Initializable {
 
         if (isUpdate) {
             refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Train updated...!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Passenger updated...!").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to update Train...!").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to update passenger...!").show();
         }
 
     }
@@ -196,11 +196,14 @@ public class PassengerManageController implements Initializable {
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         contactColumn.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
 
-        try{
+        try {
             loadTableData();
+
+            String nextPassengerId = passengerModel.getNextPassengerId();
+            psIdTxt.setText(nextPassengerId);
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Fail to load customer id").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to load data or generate next passenger ID").show();
         }
 
     }
@@ -239,7 +242,5 @@ public class PassengerManageController implements Initializable {
         contactTxt.setText("");
 
     }
-
-
 
 }

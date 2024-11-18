@@ -2,6 +2,8 @@
 .button {
     -fx-background-color: #090973; /* Original background color */
     -fx-text-fill: white; /* Text color */
+    -fx-cursor: hand; /* Change cursor to hand when hovering */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5); /* Optional: Shadow effect */
 }
 
 .button:hover {

@@ -98,6 +98,7 @@ public class SignUpController {
         );
 
         boolean isSaved = signUpModel.saveUser(signUpDto);
+
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Registration Complete.Please login...!").show();
 

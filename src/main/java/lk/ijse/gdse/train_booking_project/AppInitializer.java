@@ -17,10 +17,11 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("/View/Home.fxml"));
 
         Scene scene = new Scene(load);
         primaryStage.setTitle("Train Mate");
+        //primaryStage.setResizable(false);
 
         Image image = new Image(getClass().getResourceAsStream("/Images/train.png"));
         primaryStage.getIcons().add(image);

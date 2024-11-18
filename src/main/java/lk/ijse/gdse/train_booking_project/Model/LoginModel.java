@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginModel {
+    public String name;
+
     public boolean checkCredentials(String enteredUsername, String enteredPassword) throws SQLException, ClassNotFoundException {
         try {
             ResultSet result = CrudUtil.execute("SELECT*FROM admin WHERE username=? AND password=?",enteredUsername,enteredPassword);
@@ -27,7 +29,6 @@ public class LoginModel {
         try{
             ResultSet result = CrudUtil.execute("SELECT * FROM admin WHERE username = ?", enteredUsername);
 
-
             if (result.next()) {
                 return true;
             }
@@ -36,8 +37,9 @@ public class LoginModel {
             e.printStackTrace();
         }
 
-        return false; // Authentication failed
+        return false;
     }
+
 
     public boolean authenticatePsw(String enteredPassword) throws SQLException, ClassNotFoundException {
         try{
@@ -54,5 +56,7 @@ public class LoginModel {
 
         return false; // Authentication failed
     }
+
+
 
 }

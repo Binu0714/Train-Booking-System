@@ -13,4 +13,5 @@ public class ClassTM {
     private String trainId;
     private String classNo;
     private String description;
+    private int seats;
 }

@@ -2,6 +2,7 @@ package lk.ijse.gdse.train_booking_project.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -10,11 +11,13 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.train_booking_project.Dto.DelayScheduleDto;
 import lk.ijse.gdse.train_booking_project.Model.DelayScheduleModel;
 
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ResourceBundle;
 
-public class DelayScheduleManageController {
+public class DelayScheduleManageController implements Initializable {
 
     @FXML
     private Button addNoteBtn;
@@ -65,5 +68,32 @@ public class DelayScheduleManageController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            configureDatePicker();
+
+            String getNextDelayId = delayScheduleModel.getNextDelayId();
+            delayIdTxt.setText(getNextDelayId);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load..").show();
+        }
+    }
+
+    private void configureDatePicker() {
+        dateTxt.setDayCellFactory(picker -> new javafx.scene.control.DateCell() {
+            @Override
+            public void updateItem(java.time.LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                if (date.isBefore(java.time.LocalDate.now())) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
+    }
 }
 

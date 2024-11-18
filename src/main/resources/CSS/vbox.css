@@ -1,0 +1,7 @@
+.vbox-container {
+    -fx-background-color: #ffffff; /* Optional background color */
+    -fx-padding: 2;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0.3, 0, 3);
+}

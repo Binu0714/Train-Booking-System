@@ -1,0 +1,16 @@
+/* Apply drop shadow effect to the TableView */
+.table-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 5);
+    -fx-background-color: #ffffff; /* Optional: Set background color */
+    -fx-border-radius: 10; /* Optional: Round the borders */
+}
+
+/* Apply drop shadow to table headers */
+.table-view .column-header {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+}
+
+/* Apply drop shadow to table rows */
+.table-view .table-row-cell {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 3);
+}

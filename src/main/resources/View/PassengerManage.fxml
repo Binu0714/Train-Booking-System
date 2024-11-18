@@ -10,13 +10,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="464.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.PassengerManageController">
+<AnchorPane prefHeight="600.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.PassengerManageController">
    <children>
-      <VBox alignment="TOP_RIGHT" prefHeight="480.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #fff;">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="838.0" spacing="20.0" style="-fx-background-color: #fff;">
          <children>
-            <VBox prefHeight="199.0" prefWidth="766.0" spacing="5.0">
+            <Text fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="Passenger Management">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="174.0" prefWidth="798.0" spacing="5.0">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="513.0">
                      <children>
@@ -40,7 +45,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="82.0" text="A_id" HBox.hgrow="ALWAYS">
+                        <Label prefHeight="18.0" prefWidth="82.0" text="Admin Id" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -119,8 +124,11 @@
                      </children>
                   </HBox>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </VBox>
-            <HBox prefHeight="30.0" prefWidth="638.0">
+            <HBox prefHeight="36.0" prefWidth="798.0">
                <children>
                   <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#ResetOnAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #e74c3c;" text="Reset" textFill="WHITE">
                      <font>
@@ -156,13 +164,13 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="sheduleInfoTable" onMouseClicked="#onClickTable" prefHeight="189.0" prefWidth="766.0">
+            <TableView fx:id="sheduleInfoTable" onMouseClicked="#onClickTable" prefHeight="279.0" prefWidth="798.0" stylesheets="@../CSS/Table.css">
                <columns>
                   <TableColumn fx:id="psIdColumn" prefWidth="99.99999809265137" text="Passenger Id" />
-                  <TableColumn fx:id="adminIdColumn" prefWidth="92.79999542236328" text="A_Id" />
+                  <TableColumn fx:id="adminIdColumn" prefWidth="92.79999542236328" text="Admin Id" />
                   <TableColumn fx:id="nameColumn" prefWidth="237.5999755859375" text="Name" />
-                  <TableColumn fx:id="emailColumn" prefWidth="194.39993286132812" text="Email" />
-                  <TableColumn fx:id="contactColumn" prefWidth="143.20001220703125" text="Contact no" />
+                  <TableColumn fx:id="emailColumn" prefWidth="225.5999755859375" text="Email" />
+                  <TableColumn fx:id="contactColumn" prefWidth="140.800048828125" text="Contact no" />
                </columns>
                <VBox.margin>
                   <Insets />
@@ -173,7 +181,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="600.0" />
                </VBox.margin>
             </Button>
          </children>

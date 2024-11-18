@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.train_booking_project.Dto.CustomerSupportDto;
+import lk.ijse.gdse.train_booking_project.Dto.PassengerDto;
 import lk.ijse.gdse.train_booking_project.Dto.TM.CustomerSupportTM;
 import lk.ijse.gdse.train_booking_project.Model.CustomerSupportModel;
 import lk.ijse.gdse.train_booking_project.Model.PassengerModel;
@@ -62,6 +63,9 @@ public class CustomerSupportController implements Initializable {
 
     @FXML
     private TextField scIdTxt;
+
+    @FXML
+    private TextField psNameTxt;
 
     private final PassengerModel passengerModel = new PassengerModel();
 
@@ -121,7 +125,16 @@ public class CustomerSupportController implements Initializable {
         System.out.println("reset button clicked..");
 
         refreshPage();
+    }
 
+    @FXML
+    void psIdMenuTxtOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+       String selectedPsId = psIdMenuTxt.getSelectionModel().getSelectedItem();
+        PassengerDto passengerDto = passengerModel.findById(selectedPsId);
+
+        if (passengerDto != null) {
+            psNameTxt.setText(passengerDto.getPassengerName());
+        }
     }
 
     @Override
@@ -135,10 +148,29 @@ public class CustomerSupportController implements Initializable {
         try{
             loadTableData();
             loadPassengerId();
+            configureDatePicker();
+
+            String getNextCsId = customerSupportModel.getNextCsId();
+            scIdTxt.setText(getNextCsId);
+
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Fail to load customer id").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to load..").show();
         }
+    }
+
+    private void configureDatePicker() {
+        dateTxt.setDayCellFactory(picker -> new javafx.scene.control.DateCell() {
+            @Override
+            public void updateItem(java.time.LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                if (date.isBefore(java.time.LocalDate.now())) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
     }
 
     CustomerSupportModel customerSupportModel = new CustomerSupportModel();

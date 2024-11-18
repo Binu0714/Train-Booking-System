@@ -13,13 +13,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="464.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.BookingManageController">
+<AnchorPane prefHeight="600.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.BookingManageController">
    <children>
-      <VBox alignment="TOP_RIGHT" prefHeight="480.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #fff;">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="838.0" spacing="20.0" style="-fx-background-color: #fff;">
          <children>
-            <VBox prefHeight="158.0" prefWidth="760.0" spacing="5.0">
+            <Text fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="Train Booking Management">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="170.0" prefWidth="798.0" spacing="5.0" styleClass="vbox-container">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="513.0">
                      <children>
@@ -28,15 +33,15 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" right="20.0" />
+                              <Insets left="10.0" right="22.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="bookingIdTxt" prefHeight="28.0" prefWidth="100.0" promptText="B001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="bookingIdTxt" prefHeight="28.0" prefWidth="106.0" promptText="B001" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="100.0" />
+                              <Insets right="145.0" />
                            </HBox.margin>
                         </TextField>
                         <Label prefHeight="18.0" prefWidth="79.0" text="Passenger Id">
@@ -44,10 +49,10 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="25.0" />
                            </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="passengerIdComboTxt" editable="true" onAction="#cmbItemOnAction" prefHeight="26.0" prefWidth="119.0" promptText="PS0001" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <ComboBox fx:id="passengerIdComboTxt" editable="true" onAction="#passengerIdComboTxtOnAction" prefHeight="26.0" prefWidth="119.0" promptText="PS0001" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                         <TextField fx:id="passengerNameTxt" prefHeight="28.0" prefWidth="191.0" promptText="Passenger Name" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
@@ -57,6 +62,41 @@
                            </HBox.margin>
                         </TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="Date" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="14.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="dateTxt" prefHeight="26.0" prefWidth="111.0" promptText="10/10/2024" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <HBox.margin>
+                              <Insets right="124.0" />
+                           </HBox.margin></DatePicker>
+                        <Label prefHeight="18.0" prefWidth="93.0" text="Train">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="21.0" right="8.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="trainTxt" editable="true" onAction="#trainTxtOnAction" prefHeight="26.0" prefWidth="324.0" promptText="Express Colombo-Kandy" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <HBox.margin>
+                              <Insets right="4.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
                      <children>
@@ -68,13 +108,13 @@
                               <Insets left="10.0" right="20.0" />
                            </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="classComboTxt" editable="true" onAction="#cmbItemOnAction" prefHeight="26.0" prefWidth="101.0" promptText="1/2/3" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
-                        <TextField fx:id="classSeatstxt" prefHeight="28.0" prefWidth="69.0" promptText="Seats" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <ComboBox fx:id="classComboTxt" editable="true" onAction="#classComboTxtOnAction" prefHeight="26.0" prefWidth="151.0" promptText="First Class" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <TextField fx:id="classSeatstxt" prefHeight="28.0" prefWidth="59.0" promptText="Seats" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="11.0" right="12.0" />
                            </HBox.margin>
                         </TextField>
                         <Label prefHeight="18.0" prefWidth="93.0" text="Schedule Id">
@@ -82,11 +122,14 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" right="8.0" />
+                              <Insets left="21.0" right="8.0" />
                            </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="scheduleComboTxt" editable="true" onAction="#cmbItemOnAction" prefHeight="26.0" prefWidth="115.0" promptText="S001" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
-                        <TextField fx:id="stationTxt" prefHeight="28.0" prefWidth="88.0" promptText="End station" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <ComboBox fx:id="scheduleComboTxt" editable="true" onAction="#scheduleComboTxtOnAction" prefHeight="26.0" prefWidth="86.0" promptText="S001" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                           <HBox.margin>
+                              <Insets right="4.0" />
+                           </HBox.margin></ComboBox>
+                        <TextField fx:id="stationTxt" prefHeight="28.0" prefWidth="136.0" promptText="End station" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -94,7 +137,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField fx:id="durationTxt" prefHeight="28.0" prefWidth="95.0" promptText="Duration" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="durationTxt" prefHeight="28.0" prefWidth="79.0" promptText="Duration" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -103,6 +146,9 @@
                            </HBox.margin>
                         </TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
                      <children>
@@ -114,13 +160,13 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="destinationComboTxt" editable="true" onAction="#cmbItemOnAction" prefHeight="26.0" prefWidth="101.0" promptText="Badulla" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
-                        <TextField fx:id="stationIdTxt" prefHeight="28.0" prefWidth="69.0" promptText="Station Id" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <ComboBox fx:id="destinationComboTxt" editable="true" onAction="#destinationComboTxtOnAction" prefHeight="26.0" prefWidth="152.0" promptText="Badulla" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <TextField fx:id="stationIdTxt" prefHeight="28.0" prefWidth="59.0" promptText="St Id" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="13.0" />
+                              <Insets left="12.0" right="12.0" />
                            </HBox.margin>
                         </TextField>
                         <Label prefHeight="18.0" prefWidth="92.0" text="Ticket Price">
@@ -128,10 +174,10 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="16.0" right="10.0" />
+                              <Insets left="20.0" right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="ticketPriceTxt" prefHeight="28.0" prefWidth="118.0" promptText="150.00" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="ticketPriceTxt" prefHeight="28.0" prefWidth="102.0" promptText="150.00" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -143,8 +189,11 @@
                            <padding>
                               <Insets left="15.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
                         </Label>
-                        <TextField fx:id="noOfSeatsTxt" prefHeight="28.0" prefWidth="95.0" promptText="5" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="noOfSeatsTxt" prefHeight="28.0" prefWidth="100.0" promptText="5" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -153,76 +202,46 @@
                            </HBox.margin>
                         </TextField>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="513.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="87.0" text="Date" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="16.0" />
-                           </HBox.margin>
-                        </Label>
-                        <DatePicker fx:id="dateTxt" prefHeight="26.0" prefWidth="106.0" promptText="10/10/2024" />
-                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </VBox>
-            <HBox alignment="CENTER_RIGHT" spacing="30.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="798.0" spacing="30.0">
                <children>
-                  <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7f8c8d;" text="Generate Report" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnUpdate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="27.0" prefWidth="778.0" style="-fx-background-color: #3498db;" text="Add To Booking Cart" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Calibri Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="CLOSED_HAND" />
                      </cursor>
-                  </Button>
-                  <Button layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resetOnAction" prefWidth="80.0" style="-fx-background-color: #e74c3c;" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnDelete" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefWidth="80.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnUpdate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefWidth="80.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefWidth="80.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="bookingInfoTable" onMouseClicked="#onClickTable" prefHeight="221.0" prefWidth="760.0">
+            <TableView fx:id="bookingInfoTable" onMouseClicked="#onClickTable" prefHeight="209.0" prefWidth="798.0" stylesheets="@../CSS/Table.css">
                <columns>
-                  <TableColumn fx:id="bookinIdColumn" prefWidth="83.20001220703125" text="Booking Id" />
-                  <TableColumn fx:id="passengerIdColumn" prefWidth="82.4000244140625" text="PS Id" />
-                  <TableColumn fx:id="scheduleIdColumn" prefWidth="94.4000244140625" text="Shedule Id" />
-                  <TableColumn fx:id="classColumn" prefWidth="72.79998779296875" text="Class" />
-                  <TableColumn fx:id="endStationColumn" prefWidth="146.4000244140625" text="End Station" />
-                  <TableColumn fx:id="priceColumn" prefWidth="103.199951171875" text="Ticket Price" />
-                  <TableColumn fx:id="noOfSeatsColumn" prefWidth="100.7999267578125" text="No Of Seats" />
-                  <TableColumn fx:id="dateColumn" prefWidth="72.0001220703125" text="Date" />
+                  <TableColumn fx:id="bookinIdColumn" prefWidth="75.19998359680176" text="Booking Id" />
+                  <TableColumn fx:id="passengerIdColumn" prefWidth="77.59996795654297" text="PS Id" />
+                  <TableColumn fx:id="scheduleIdColumn" prefWidth="72.7999267578125" text="Shedule Id" />
+                  <TableColumn fx:id="classColumn" prefWidth="66.39997863769531" text="Class" />
+                  <TableColumn fx:id="endStationColumn" prefWidth="127.20001220703125" text="End Station" />
+                  <TableColumn fx:id="noOfSeatsColumn" prefWidth="94.39996337890625" text="No Of Seats" />
+                  <TableColumn fx:id="priceColumn" prefWidth="100.79998779296875" text="Price" />
+                  <TableColumn fx:id="dateColumn" minWidth="2.4000244140625" prefWidth="101.60003662109375" text="Date" />
+                  <TableColumn fx:id="dateColumn1" minWidth="2.4000244140625" prefWidth="77.60009765625" text="Action" />
                </columns>
             </TableView>
             <HBox alignment="CENTER_RIGHT" spacing="30.0">
@@ -235,7 +254,7 @@
                         <Cursor fx:constant="CLOSED_HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="paymentBtn" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefWidth="80.0" style="-fx-background-color: #2ecc71;" text="Make Payment" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <Button fx:id="paymentBtn" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#placeBtnAction" prefWidth="80.0" style="-fx-background-color: #2ecc71;" text="Place Booking " textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
                      </font>

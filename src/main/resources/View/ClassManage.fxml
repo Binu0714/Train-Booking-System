@@ -11,12 +11,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="460.0" prefWidth="638.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.ClassManageController">
+<AnchorPane prefHeight="600.0" prefWidth="838.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.train_booking_project.Controller.ClassManageController">
    <children>
-      <VBox prefHeight="460.0" prefWidth="638.0">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="838.0">
          <children>
-            <VBox prefHeight="179.0" prefWidth="638.0">
+            <Text fill="#090973" strokeType="OUTSIDE" strokeWidth="0.0" text="Train Class Management">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="174.0" prefWidth="838.0">
                <children>
                   <HBox prefHeight="30.0" prefWidth="638.0">
                      <VBox.margin>
@@ -28,15 +34,15 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="5.0" />
+                              <Insets left="40.0" top="5.0" />
                            </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="trainIdMenu" prefHeight="29.0" prefWidth="77.0" promptText="T001">
+                        <ComboBox fx:id="trainIdMenu" editable="true" onAction="#trainIdMenuOnAction" prefHeight="30.0" prefWidth="83.0" promptText="T001" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="85.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <TextField fx:id="trainNameLoadTxt" alignment="CENTER" prefHeight="26.0" prefWidth="228.0" promptText="Train name" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="trainNameLoadTxt" alignment="CENTER" prefHeight="26.0" prefWidth="310.0" promptText="Train name" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -46,10 +52,10 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="5.0" />
+                              <Insets left="40.0" top="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="classIdTxt" prefHeight="26.0" prefWidth="72.0" promptText="C01" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="classIdTxt" prefHeight="26.0" prefWidth="72.0" promptText="C01" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -63,10 +69,10 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="8.0" />
+                              <Insets left="40.0" top="8.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="classNoTxt" prefHeight="26.0" prefWidth="461.0" promptText="1A" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="classNoTxt" prefHeight="26.0" prefWidth="569.0" promptText="1A" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="81.0" />
                            </HBox.margin>
@@ -80,29 +86,12 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="8.0" />
+                              <Insets left="40.0" top="8.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="descriptionTxt" prefHeight="26.0" prefWidth="460.0" promptText="First Class AC with sleeper" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="descriptionTxt" prefHeight="26.0" prefWidth="570.0" promptText="First Class AC with sleeper" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="63.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="30.0" prefWidth="638.0">
-                     <children>
-                        <Label fx:id="configId" text="Configuration ID">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="20.0" top="8.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="cinfigIdTxt" prefHeight="26.0" prefWidth="460.0" promptText="CN001" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
-                           <HBox.margin>
-                              <Insets left="30.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
@@ -114,46 +103,29 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="8.0" />
+                              <Insets left="40.0" top="8.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="seatsTxt" prefHeight="26.0" prefWidth="457.0" promptText="75" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="seatsTxt" prefHeight="26.0" prefWidth="569.0" promptText="75" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="638.0">
-                     <children>
-                        <Label fx:id="seats1" text="Ticket Price">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="20.0" top="8.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="tktPriceTxt" prefHeight="26.0" prefWidth="457.0" promptText="Rs.500.00" style="-fx-background-color: #fff; -fx-border-color: #090973; -fx-border-width: 0 0 1px 0;">
-                           <HBox.margin>
-                              <Insets left="64.0" />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                  </HBox>
                </children>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="10.0" top="15.0" />
                </VBox.margin>
             </VBox>
-            <HBox prefHeight="30.0" prefWidth="638.0">
+            <HBox prefHeight="33.0" prefWidth="838.0">
                <children>
                   <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#ResetOnAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #e74c3c;" text="Reset" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="150.0" />
+                        <Insets left="320.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#DeleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
@@ -182,21 +154,19 @@
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets top="-30.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="classInfoTable" prefHeight="221.0" prefWidth="626.0">
+            <TableView fx:id="classInfoTable" onMouseClicked="#onClickACtion" prefHeight="338.0" prefWidth="815.0" stylesheets="@../CSS/Table.css">
               <columns>
-                <TableColumn fx:id="trainIdColumn" prefWidth="70.39998799562454" text="Train ID" />
-                <TableColumn fx:id="classIdColumn" prefWidth="68.0" text="Class ID" />
-                  <TableColumn fx:id="classNoColumn" prefWidth="74.4000244140625" text="Class No" />
-                  <TableColumn fx:id="desColumn" prefWidth="122.39999389648438" text="Description" />
-                  <TableColumn fx:id="configIdColumn" prefWidth="96.0" text="Config_ID" />
-                  <TableColumn fx:id="seatsColumn" prefWidth="88.79998779296875" text="Seats" />
-                  <TableColumn fx:id="priceColumn" prefWidth="112.79998779296875" text="Ticket Price" />
+                <TableColumn fx:id="trainIdColumn" prefWidth="124.79998338222504" text="Train ID" />
+                <TableColumn fx:id="classIdColumn" prefWidth="116.79999542236328" text="Class ID" />
+                  <TableColumn fx:id="classNoColumn" prefWidth="105.60005187988281" text="Class No" />
+                  <TableColumn fx:id="desColumn" prefWidth="354.3999328613281" text="Description" />
+                  <TableColumn fx:id="seatsColumn" prefWidth="123.2000732421875" text="Number Of Seats" />
               </columns>
                <VBox.margin>
-                  <Insets left="5.0" right="5.0" top="10.0" />
+                  <Insets bottom="8.0" left="10.0" right="10.0" top="15.0" />
                </VBox.margin>
             </TableView>
          </children>

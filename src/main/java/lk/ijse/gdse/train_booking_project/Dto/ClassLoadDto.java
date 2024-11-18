@@ -2,19 +2,19 @@ package lk.ijse.gdse.train_booking_project.Dto;
 
 import lombok.*;
 
-import java.util.ArrayList;
+import java.sql.Date;
 
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 
-public class ClassDto {
-    private String classId;
+public class ClassLoadDto {
     private String trainId;
+    private String classId;
     private String classNo;
     private String description;
-    private int seats;
-
+    private String configId;
+    private int noOfSeats;
 }
